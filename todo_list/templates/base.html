@@ -10,12 +10,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>{% block title %}Hello, world!{% endblock %}</title>
+    <title>
+      {% block title %}Hello, world!{% endblock %}
+    </title>
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'home' %}">To-Do List</a>
+  <a class="navbar-brand" href="{% url 'home' %}">
+    <button type="button" class="btn btn-md btn-outline-light">To-Do List</button>
+    </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,14 +29,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'about' %}">
+          <button type="button" class="btn btn-md btn-outline-light">About</button>
+        </a>
       </li>
     </ul>
 
 <!-- start login, logout, signup -->
     {% if request.user.is_authenticated %}
     <a href="{% url 'logout' %}" class="mr-4 text-white">
-      <i class="fas fa-sign-in-alt"></i> &nbsp; Log out
+      <button type="button" class="btn btn-md btn-outline-light">
+      <i class="fa fa-sign-out"></i> &nbsp; Log Out
+      </button>
     </a>
 
   <!-- Add To-DO List form will show after login(that's why i kept it into if condition) -->
@@ -42,11 +52,15 @@
 
     {% else %}
     <a href="{% url 'signup' %}" class="mr-4 text-white">
-      <i class="fas fa-user-plus"></i> &nbsp; Sign up
+      <button type="button" class="btn btn-md btn-outline-light">
+      <i class="fa fa-user-plus"></i> &nbsp; Sign Up
+      </button>
     </a>
 
     <a href="{% url 'login' %}" class="mr-4 text-white">
-      <i class="fas fa-sign-in-alt"></i> &nbsp; Log in
+      <button type="button" class="btn btn-md btn-outline-light">
+      <i class="fa fa-user"></i> &nbsp; Log In
+      </button>
     </a>
     {% endif %}
 <!-- end login, logout, signup -->
