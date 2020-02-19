@@ -8,6 +8,8 @@ from django.contrib.auth.forms import UserCreationForm  # for signup form
 # from django.contrib.auth.mixins import LoginRequiredMixin # its only for class base view.individiual user can acces their todo only
 from django.contrib.auth.decorators import login_required # without login user can not see home page
 from django.urls import reverse_lazy
+from django.contrib.auth import logout ## For Log Out
+
 
 # Create your views here.
 @login_required  # it will work after login.
@@ -67,3 +69,10 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('home')
+
+
+##-## Log Out Start ##-##
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+##-## Log Out Start ##-##

@@ -9,4 +9,5 @@ urlpatterns = [
     path('uncross/<list_id>', views.uncross, name='uncross'),
     path('edit/<list_id>', views.edit, name='edit'),
     path('signup/', views.SignUpView.as_view(), name="signup"),
+    path('logout/', views.logout_view, name="logout_view"),
 ]
