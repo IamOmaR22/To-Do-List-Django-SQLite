@@ -39,7 +39,7 @@
     {% if request.user.is_authenticated %}
     <a href="{% url 'logout' %}" class="mr-4 text-white">
       <button type="button" class="btn btn-md btn-outline-light">
-      <i class="fa fa-sign-out"></i> &nbsp; Log Out
+      <i class="fa fa-sign-out"></i> &nbsp; Sign out
       </button>
     </a>
 
@@ -47,19 +47,19 @@
     <form class="form-inline my-2 my-lg-0" method="POST">
       {% csrf_token %} <!-- cross site request for every token -->
       <input class="form-control mr-sm-2" type="search" placeholder="To-Do Item" aria-label="Search" name="item">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add To-Do List</button>
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Add To-Do List</button>
     </form>
 
     {% else %}
     <a href="{% url 'signup' %}" class="mr-4 text-white">
       <button type="button" class="btn btn-md btn-outline-light">
-      <i class="fa fa-user-plus"></i> &nbsp; Sign Up
+      <i class="fa fa-user-plus"></i> &nbsp; Sign up
       </button>
     </a>
 
     <a href="{% url 'login' %}" class="mr-4 text-white">
       <button type="button" class="btn btn-md btn-outline-light">
-      <i class="fa fa-user"></i> &nbsp; Log In
+      <i class="fa fa-user"></i> &nbsp; Sign in
       </button>
     </a>
     {% endif %}
